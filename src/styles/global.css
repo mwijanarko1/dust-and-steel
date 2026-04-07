@@ -1,0 +1,487 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap");
+
+:root {
+  --bg: #d8d1bd;
+  --bg-deep: #b6b09f;
+  --ink: #1f1d19;
+  --ink-soft: #4f4a3e;
+  --accent: #ba4f2f;
+  --accent-soft: #dc8f67;
+  --line: rgba(45, 40, 30, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  font-family: "Outfit", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 400px at 10% -20%, rgba(255, 255, 255, 0.75), transparent 60%),
+    radial-gradient(1000px 500px at 90% 110%, rgba(186, 79, 47, 0.28), transparent 65%),
+    linear-gradient(160deg, var(--bg) 0%, var(--bg-deep) 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  padding: 1.2rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+}
+
+.app-shell--splash {
+  grid-template-rows: 1fr;
+  padding: clamp(1.25rem, 5vw, 3rem);
+  gap: 0;
+}
+
+.app-shell--setup {
+  grid-template-rows: 1fr;
+  padding: clamp(1.25rem, 5vw, 3rem);
+  gap: 0;
+  place-items: center;
+  align-content: center;
+}
+
+.app-shell--setup .setup {
+  width: min(100%, 42rem);
+}
+
+.app-shell--battle {
+  padding: 0;
+  min-height: 100dvh;
+  height: 100dvh;
+  display: block;
+  overflow: hidden;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.8rem;
+}
+
+.top-bar h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.top-bar p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(247, 242, 231, 0.78);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(70, 47, 33, 0.12);
+}
+
+.splash-screen {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 1rem;
+  min-height: 100%;
+  width: 100%;
+}
+
+.splash-screen h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.splash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+.splash-actions .cta-button {
+  margin-top: 0;
+}
+
+.summary {
+  margin: 0;
+  max-width: 56ch;
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7b6d59;
+  font-size: 0.78rem;
+}
+
+.eyebrow--splash {
+  text-transform: none;
+  letter-spacing: 0.06em;
+  max-width: 56ch;
+}
+
+.eyebrow--splash a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.eyebrow--splash a:hover {
+  color: var(--accent);
+}
+
+.setup {
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.setup header h2 {
+  margin: 0.3rem 0 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.era-grid {
+  grid-template-columns: repeat(auto-fit, minmax(164px, 1fr));
+}
+
+.split-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: start;
+}
+
+.group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.group h3 {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+}
+
+.choice-button,
+.cta-button,
+.order-button {
+  border: 1px solid rgba(42, 32, 20, 0.35);
+  background: rgba(251, 247, 237, 0.84);
+  color: var(--ink);
+  border-radius: 0.8rem;
+  padding: 0.68rem 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.choice-button:hover,
+.cta-button:hover,
+.order-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(186, 79, 47, 0.6);
+}
+
+.choice-button:active,
+.cta-button:active,
+.order-button:active {
+  transform: scale(0.98);
+}
+
+.selected {
+  background: rgba(186, 79, 47, 0.18);
+  border-color: rgba(186, 79, 47, 0.75);
+}
+
+.cta-button {
+  margin-top: 0.6rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, #d9714f 0%, #b84f2f 100%);
+  color: #f6efe2;
+  border: 0;
+  text-align: center;
+}
+
+.cta-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background: linear-gradient(180deg, #8f8680 0%, #6e6762 100%);
+  color: rgba(246, 239, 226, 0.65);
+  pointer-events: none;
+}
+
+.cta-button:disabled:hover,
+.cta-button:disabled:active {
+  transform: none;
+}
+
+.battle-screen {
+  display: grid;
+  grid-template-rows: minmax(320px, 1fr) auto;
+  gap: 0.8rem;
+  min-height: 0;
+}
+
+.battle-screen--fullscreen {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.battle-screen--fullscreen .battle-canvas-wrap {
+  position: absolute;
+  inset: 0;
+  min-height: 100dvh;
+  height: 100%;
+  border-radius: 0;
+}
+
+.battle-screen--fullscreen .battle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border-radius: 0;
+  border: none;
+}
+
+.battle-canvas-wrap {
+  position: relative;
+  min-height: 56dvh;
+  border-radius: 0.9rem;
+}
+
+.battle-canvas {
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid rgba(42, 32, 20, 0.28);
+  min-height: 56dvh;
+  height: 100%;
+  background: linear-gradient(160deg, #d3ccb7 0%, #c0b498 100%);
+}
+
+.battle-phase-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(28, 24, 18, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.battle-phase-overlay__panel {
+  max-width: min(920px, 100%);
+  padding: 1.25rem 1.4rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.battle-phase-overlay__panel h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+}
+
+.battle-phase-overlay__lede {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.briefing-maps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.briefing-maps__cell {
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.briefing-maps__cell figcaption {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.briefing-map {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.6rem;
+  border: 1px solid var(--line);
+}
+
+.briefing-map--tall {
+  aspect-ratio: 1 / 1.05;
+}
+
+.briefing-map__field {
+  fill: #e8e2d4;
+  stroke: rgba(45, 40, 30, 0.35);
+  stroke-width: 0.4;
+}
+
+.briefing-map__objective {
+  fill: rgba(186, 79, 47, 0.35);
+  stroke: rgba(186, 79, 47, 0.85);
+  stroke-width: 0.35;
+}
+
+.briefing-map__objective-dim {
+  fill: rgba(186, 79, 47, 0.2);
+  stroke: rgba(120, 70, 50, 0.45);
+  stroke-width: 0.25;
+}
+
+.briefing-map__label {
+  fill: var(--ink);
+  font-size: 3.2px;
+  font-family: "Outfit", sans-serif;
+}
+
+.briefing-map__zone--attacker {
+  fill: rgba(186, 79, 47, 0.22);
+  stroke: rgba(186, 79, 47, 0.55);
+  stroke-width: 0.3;
+}
+
+.briefing-map__zone--defender {
+  fill: rgba(31, 94, 71, 0.18);
+  stroke: rgba(31, 94, 71, 0.5);
+  stroke-width: 0.3;
+}
+
+.briefing-map__zone-label {
+  fill: rgba(31, 29, 25, 0.75);
+  font-size: 2.8px;
+  font-family: "Outfit", sans-serif;
+  pointer-events: none;
+}
+
+.briefing-map__obstacle {
+  fill: rgba(72, 62, 48, 0.28);
+  stroke: rgba(45, 38, 28, 0.45);
+  stroke-width: 0.22;
+  pointer-events: none;
+}
+
+.battle-phase-overlay__cta {
+  justify-self: start;
+  margin-top: 0.25rem;
+}
+
+.defender-deployment-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 4;
+  padding: 0.5rem 0.6rem 0;
+  pointer-events: none;
+}
+
+.defender-deployment-bar__inner {
+  pointer-events: none;
+  padding: 0.65rem 0.85rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.defender-deployment-bar__title {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.defender-deployment-bar__hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.defender-deployment-bar__track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(45, 40, 30, 0.12);
+  overflow: hidden;
+}
+
+.defender-deployment-bar__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #b84f2f, #dc8f67);
+  border-radius: 999px;
+  transition: width 0.12s linear;
+}
+
+.setup-hint {
+  margin: 0.5rem 0 0;
+  max-width: 62ch;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.summary-panel {
+  padding: 1.4rem;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 560px;
+}
+
+.summary-panel h2 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.summary-panel p {
+  margin: 0;
+}
+

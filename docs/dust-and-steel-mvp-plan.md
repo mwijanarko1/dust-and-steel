@@ -7,8 +7,6 @@ Build `Dust and Steel` as a desktop-first web tactics game with a `Three.js + Ty
 ## Product Scope
 
 - Playable eras at launch:
-  - Roman
-  - Persian
   - Crusades / Ayyubid
   - World War II
   - Modern
@@ -16,7 +14,6 @@ Build `Dust and Steel` as a desktop-first web tactics game with a `Three.js + Ty
   - 2 factions
   - 6-8 unit archetypes per faction
   - 1 field map theme
-  - 1 siege-lite map theme
 - Session format:
   - Single battle only
   - Random attacker/defender assignment on battle start
